@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+
+<title> 
+    Form
+</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<script>
+function togglenames(){
+    names = document.getElementById("namesection") 
+    names.style.display = "block"
+}
+</script>
+
+
+<div class= "nameslist">
+    {%for i in nameslist:%}
+       {{i}}
+
+    {%endfor%}
+
+</div>
+
+
+<body>
+
+
+<button onclick="togglenames()" type="submit">
+    Show all names
+</button>
+
+<div class= "namesection">
+    <h5>
+        {{name}}
+    </h5>
+
+</div>
+
+<div class="bar">    
+<a href="/">
+    <button class="btn">
+        Home Page
+    </button>
+ </a>
+
+ <a href="/about">
+    <button class="btn2">
+        About Page
+    </button>
+</a>
+</div>
+    <h1>
+        This is the form page
+    </h1>
+    <form method="GET">
+        <label>
+            Your Name:
+        </label>
+        <input name= "name">
+        <button type="submit">
+            Anything
+        </button>  
+    </form>
+
+   
+
+</body>
+
+
+
+
+
+
+</html>
