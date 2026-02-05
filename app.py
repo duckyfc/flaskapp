@@ -25,12 +25,17 @@ def about():
 
 
 
-@app.route("/form")   
+@app.route("/form",methods=["POST","GET"])   
 def form():
 
     name = request.args.get("name")
-    nameslist.append(name)
-    return render_template("page.html", name = name, nameslist = nameslist)
+    action = request.form.get("action")
+    if action == "save":
+        nameslist.append(name)
+    elif action == "clear": 
+        nameslist.clear()
+
+    return render_template("form.html", name = name, nameslist = nameslist)
 
 
 

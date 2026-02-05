@@ -13,13 +13,13 @@
 
 <script>
 function togglenames(){
-    names = document.getElementById("namesection") 
+    names = document.getElementById("nameslist") 
     names.style.display = "block"
 }
 </script>
 
 
-<div class= "nameslist">
+<div id= "nameslist" style="display: none;">
     {%for i in nameslist:%}
        {{i}}
 
@@ -35,7 +35,10 @@ function togglenames(){
     Show all names
 </button>
 
-<div class= "namesection">
+
+
+
+<div id= "namesection" style="display: none;">
     <h5>
         {{name}}
     </h5>
@@ -54,21 +57,33 @@ function togglenames(){
         About Page
     </button>
 </a>
+
+<a href="/form">
+    <button class="btn3">
+        Form Page
+    </button>
+</a>
+
+
 </div>
     <h1>
         This is the form page
     </h1>
-    <form method="GET">
+    <form method="POST">
         <label>
             Your Name:
         </label>
         <input name= "name">
-        <button type="submit">
-            Anything
+        <button type="submit" name="action" value="save">
+            Submit
         </button>  
+
+        <button type="submit" name="action" value="clear">
+            Clear Names
+        </button>
     </form>
 
-   
+    
 
 </body>
 
